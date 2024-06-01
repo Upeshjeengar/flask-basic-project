@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Project</title>
+    <style>
+        body {
+            background-color: #121212;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            color: #E0E0E0;
+        }
+        h3 {
+            color: #BB86FC;
+        }
+        p {
+            color: #BB86FC;
+        }
+        .box {
+            background-color: #1E1E1E;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            width: 300px;
+            text-align: center;
+        }
+        .box a {
+            color: #03DAC5;
+            text-decoration: none;
+            margin-top: 10px;
+            display: inline-block;
+        }
+        .box a:hover {
+            text-decoration: underline;
+        }
+        .popup {
+            background: #2C2C2C;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            margin-top: 20px;
+        }
+        .input_field {
+            border: 1px solid #BB86FC;
+            padding: 10px;
+            margin-top: 10px;
+            width: calc(100% - 22px);
+            background-color: #121212;
+            color: #E0E0E0;
+            border-radius: 5px;
+        }
+        .input_field::placeholder {
+            color: #BB86FC;
+        }
+        .form button.submit {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 18px;
+            width: 100%;
+            background: linear-gradient(180deg, #4480FF 0%, #115DFC 50%, #0550ED 100%);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            border: none;
+            font-weight: 600;
+            font-size: 14px;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .form button.submit:hover {
+            background: linear-gradient(180deg, #115DFC 0%, #0550ED 100%);
+        }
+    </style>
+</head>
+<body>
+    <div class='box'>
+        <h3>About Dataset:</h3>
+        <p>A categorical dataset to determine whether a user purchased a particular product</p>
+        <a href="https://www.kaggle.com/datasets/rakeshrau/social-network-ads">Data Source</a>
+        <p>About project: I am using logistic regression to predict whether a new user will buy the product or not</p>
+    </div>
+    <div class="popup">
+        <form class="form" action="{{ url_for('predict') }}" method="POST">
+            <input placeholder="Enter your Age" title="Enter your Age" name="age" type="number" class="input_field" min="0">
+            <input placeholder="Enter your Salary" title="Enter your Salary" name="salary" type="number" class="input_field" min="0">
+            <button class="submit">Submit</button>
+        </form>
+        {% if prediction is not none %}
+        <p>Prediction: {{ prediction }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
