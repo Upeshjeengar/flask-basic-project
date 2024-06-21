@@ -12,8 +12,8 @@ I had downloaded my model(You can view code <a href="https://github.com/Upeshjee
 ## Step 1:Download
 ### Method 1: Directly Download in zip format and unzip 
 
-or use CLI
-### Method 2: 
+
+### Method 2: Use CLI
 ```git clone https://github.com/Upeshjeengar/flask-basic-project.git```
 
 ## Step 2: Change your directory 
